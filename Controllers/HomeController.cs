@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TruongLamHuuLoc_BigSchool.Models;
 using System.Data.Entity;
+using TruongLamHuuLoc_BigSchool.ViewModels;
 namespace TruongLamHuuLoc_BigSchool.Controllers
 {
     public class HomeController : Controller
@@ -20,7 +21,12 @@ namespace TruongLamHuuLoc_BigSchool.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcomingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()
