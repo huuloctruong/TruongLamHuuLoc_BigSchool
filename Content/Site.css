@@ -186,7 +186,7 @@ textarea {
 
             .course > li .date .day {
                 background: #ebebeb;
-                color: #333;
+                color: rgb(178, 0, 255);
                 font-size: 20px;
                 padding: 6px 12px;
             }
