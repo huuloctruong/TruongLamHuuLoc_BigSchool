@@ -69,6 +69,7 @@ namespace TruongLamHuuLoc_BigSchool.Controllers
             };
             return View(viewModel);
         }
+
         [Authorize]
         public ActionResult Following()
         {
